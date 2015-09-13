@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example using jPolygon</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="An example using jPolygon">
+        <meta name="keywords" content="HTML,CSS,JavaScript,jPolygon">
+        <meta name="author" content="Matteo Mattei">
+    </head>
+    <body onload="clear_canvas()">
+        <div style="float:left">
+            <canvas id="jPolygon" width="640" height="480" style="cursor:crosshair" data-imgsrc="image.jpg" onclick="point_it(event)">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+        </div>
+        <div style="float:left; margin-left:20px;">
+            <div>
+                <button onclick="undo()">Undo</button>
+                <button onclick="clear_canvas()">Clear</button>
+                <p>Press <strong>CTRL+Click</strong> to close the polygon.</p>
+            </div>
+            <div>
+                <p><strong>Coordinates:</strong></p>
+                <textarea id="coordinates" disabled="disabled" style="width:300px; height:200px;"></textarea>
+            </div>
+            <div>
+                <p style="font-size:10px">Go to <a href="http://www.matteomattei.com/projects/jpolygon">project website</a></p>
+                <p style="font-size:10px">Go to <a href="https://github.com/matteomattei/jPolygon">sources</a></p>
+            </div>
+        </div>
+        <script type="text/javascript" src="jPolygon.js"></script>
+    </body>
+</html>
