@@ -120,7 +120,11 @@ function point_it(event) {
     }
     var rect, x, y;
 
-    if(event.ctrlKey){
+    if(event.ctrlKey || event.which === 3 || event.button === 2){
+        if(perimeter.length==2){
+            alert('You need at least three points for a polygon');
+            return false;
+        }
         x = perimeter[0]['x'];
         y = perimeter[0]['y'];
         if(check_intersect(x,y)){
@@ -129,16 +133,23 @@ function point_it(event) {
         }
         draw(true);
         alert('Polygon closed');
+	event.preventDefault();
+        return false;
     } else {
         rect = canvas.getBoundingClientRect();
         x = event.clientX - rect.left;
         y = event.clientY - rect.top;
+        if (perimeter.length>0 && x == perimeter[perimeter.length-1]['x'] && y == perimeter[perimeter.length-1]['y']){
+            // same point - double click
+            return false;
+        }
         if(check_intersect(x,y)){
             alert('The line you are drowing intersect another line');
             return false;
         }
         perimeter.push({'x':x,'y':y});
         draw(false);
+        return false;
     }
 }
 
