@@ -1,3 +1,11 @@
+/*
+   jPolygon - a ligthweigth javascript library to draw polygons over HTML5 canvas images.
+   Project URL: http://www.matteomattei.com/projects/jpolygon
+   Author: Matteo Mattei <matteo.mattei@gmail.com>
+   Version: 1.0
+   License: MIT License
+*/
+
 var perimeter = new Array();
 var complete = false;
 var canvas = document.getElementById("jPolygon");
@@ -107,7 +115,7 @@ function check_intersect(x,y){
 
 function point_it(event) {
     if(complete){
-        alert('perimeter already created: '+JSON.stringify(perimeter));
+        alert('Polygon already created');
         return false;
     }
     var rect, x, y;
@@ -120,7 +128,7 @@ function point_it(event) {
             return false;
         }
         draw(true);
-        alert(JSON.stringify(perimeter));
+        alert('Polygon closed');
     } else {
         rect = canvas.getBoundingClientRect();
         x = event.clientX - rect.left;
